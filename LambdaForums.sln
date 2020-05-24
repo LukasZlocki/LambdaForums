@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LambdaForums", "LambdaForums\LambdaForums.csproj", "{F819935C-5648-40B0-B666-B9D1BA2AEC57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaForums", "LambdaForums\LambdaForums.csproj", "{F819935C-5648-40B0-B666-B9D1BA2AEC57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LambdaForums.Data", "LambdaForums.Data\LambdaForums.Data.csproj", "{A90C290D-A185-4146-B894-85AAC89262F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaForums.Data", "LambdaForums.Data\LambdaForums.Data.csproj", "{A90C290D-A185-4146-B894-85AAC89262F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
