@@ -35,5 +35,12 @@ namespace LambdaForums.Controllers
 
             return View(model);
         }
+
+        public IActionResult Topic(int id)
+        {
+            var forum = _forumService.GetById(id);
+
+           //var postListings = ...
+        }
     }
 }
