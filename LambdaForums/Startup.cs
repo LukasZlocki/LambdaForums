@@ -37,6 +37,7 @@ namespace LambdaForums
             services.AddRazorPages();
 
             services.AddScoped<IForum, ForumService>();
+            services.AddScoped<IPost, PostService>();
 
         }
 

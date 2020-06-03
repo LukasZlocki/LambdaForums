@@ -1,6 +1,9 @@
 ﻿using LambdaForums.Data;
+using LambdaForums.Data.Models;
 using LambdaForums.Models.Forum;
+using LambdaForums.Models.Post;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Linq;
 
 namespace LambdaForums.Controllers
@@ -36,9 +39,48 @@ namespace LambdaForums.Controllers
         public IActionResult Topic(int id)
         {
             var forum = _forumService.GetById(id);
-            var posts = _postService.GetFilteredPosts(id);
+            var posts = forum.Posts;
 
-           //var postListings = ...
+            var postListings = posts.Select(post => new PostListingModel
+            {
+                Id = post.Id,
+                AuthorId = Convert.ToInt32(post.Users.Id), // <--- ToDo : konwersja do inta - moga byc problemy za jakis czas !!!!!
+                AuthorRating = post.Users.Rating,
+                Title = post.Title,
+                DatePosted = post.Created.ToString(),
+                RepliesCount = post.Replies.Count(),
+                Forum = BuildForumListing(post)
+            });
+
+            var model = new ForumTopicModel 
+            {
+                Posts=postListings,
+                Forum = BuildForumListing(forum)
+            };
+
+
+            return View(model);
         }
+
+        private ForumListingModel BuildForumListing(Post post)
+        {
+            var forum = post.Forum;
+
+            return BuildForumListing(forum);
+        }
+
+        private ForumListingModel BuildForumListing(Forum forum)
+        {
+            return new ForumListingModel
+            {
+                Id = forum.Id,
+                Name = forum.Title,
+                Description = forum.Description,
+                ImageUrl = forum.ImageUrl
+            };
+        }
+
+     
+
     }
 }
