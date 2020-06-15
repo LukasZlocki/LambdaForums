@@ -28,10 +28,10 @@ namespace LambdaForums.Controllers
             {
                 Id = post.Id,
                 Title = post.Title,
-                AuthorId = post.Users.Id,
-                AuthorName = post.Users.UserName,
-                AuthorImageUrle = post.Users.ProfileImageUrl,
-                AuthorRating = post.Users.Rating,
+                AuthorId = post.User.Id,
+                AuthorName = post.User.UserName,
+                AuthorImageUrle = post.User.ProfileImageUrl,
+                AuthorRating = post.User.Rating,
                 Created = post.Created,
                 PostContent = post.Content,
                 Replies = replies

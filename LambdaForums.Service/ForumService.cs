@@ -41,7 +41,7 @@ namespace LambdaForums.Service
         public Forum GetById(int id)
         {
             var forum = _context.Forums.Where(f => f.Id == id)
-                .Include(p => p.Posts).ThenInclude(p => p.Users)
+                .Include(p => p.Posts).ThenInclude(p => p.User)
                 .Include(f => f.Posts).ThenInclude(p => p.Replies).ThenInclude(p => p.User)
                 .FirstOrDefault();
 

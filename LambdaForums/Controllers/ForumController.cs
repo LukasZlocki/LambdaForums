@@ -11,7 +11,7 @@ namespace LambdaForums.Controllers
     public class ForumController : Controller
     {
         private readonly IForum _forumService;
-        private readonly IPost _postService;
+   //     private readonly IPost _postService;
 
         public ForumController(IForum forumService)
         {
@@ -41,11 +41,12 @@ namespace LambdaForums.Controllers
             var forum = _forumService.GetById(id);
             var posts = forum.Posts;
 
+            // ToDo : tu jest blad postListing jest nullem
             var postListings = posts.Select(post => new PostListingModel
             {
                 Id = post.Id,
-                AuthorId = Convert.ToInt32(post.Users.Id), // <--- ToDo : konwersja do inta - moga byc problemy za jakis czas !!!!!
-                AuthorRating = post.Users.Rating,
+                AuthorId = post.User.Id, 
+                AuthorRating = post.User.Rating,
                 Title = post.Title,
                 DatePosted = post.Created.ToString(),
                 RepliesCount = post.Replies.Count(),
